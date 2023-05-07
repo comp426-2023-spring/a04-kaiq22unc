@@ -17,14 +17,14 @@ app.use((req, res, next) => {
 // Check endpoint
 app.get('/app', (req, res) => {
   res.status(200).send('200 OK');
-};
+});
 
 app.get('app/rps', (req, res) => {
   res.status(200).json(rps());
-};
+});
 app.get('app/rpsls', (req, res) => {
   res.status(200).json(rpsls());
-};
+});
 
 app.get("/app/rps/play", (req,res) => {
     res.status(200).json(rps(req.query.shot));
@@ -32,6 +32,25 @@ app.get("/app/rps/play", (req,res) => {
 
 app.get("/app/rpsls/play", (req,res) => {
     res.status(200).json(rpsls(req.query.shot));
+});
+app.post("/app/rps/play", (req,res,next) => {
+    res.json(rps(req.body.shot));
+    res.status(200);
+});
+
+app.post("/app/rpsls/play", (req,res,next) => {
+    res.json(rpsls(req.body.shot));
+    res.status(200);
+});
+
+app.get("/app/rps/play/:shot", (req,res,next) => {
+    res.json(rps(req.params['shot']));
+    res.status(200);
+});
+
+app.get("/app/rpsls/play/:shot", (req,res,next) => {
+    res.json(rpsls(req.params.shot));
+    res.status(200);
 });
 
 server.listen(PORT, () => {
