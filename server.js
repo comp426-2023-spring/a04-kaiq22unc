@@ -6,7 +6,7 @@ import {rps, rpsls} from './lib/rpsls.js';
 
 const argv = minimist(process.argv.slice(2));
 const app = express();
-const port = args.port || 5000;
+const port = argv.port || 5000;
 
 
 // Default endpoint for undefined routes
