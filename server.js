@@ -8,7 +8,8 @@ const argv = minimist(process.argv.slice(2));
 const app = express();
 const port = argv.port || 5000;
 
-
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 // Check endpoint
@@ -19,7 +20,7 @@ app.get('/app/', (req, res) => {
 app.get('app/rps', (req, res) => {
   res.status(200).send(rps());
 });
-app.get('app/rpsls', (req, res) => {
+app.get('app/rpsls/', (req, res) => {
   res.status(200).json(rpsls());
 });
 
