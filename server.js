@@ -16,7 +16,7 @@ app.get("*", (req, res) => {
 
 
 // Check endpoint
-app.get('/app', (req, res) => {
+app.get('/app/', (req, res) => {
   res.status(200).send('200 OK');
 });
 
