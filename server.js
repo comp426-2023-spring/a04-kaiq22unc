@@ -26,7 +26,13 @@ app.get('app/rpsls', (req, res) => {
   res.status(200).json(rpsls());
 }
 
+app.get("/app/rps/play", (req,res) => {
+    res.status(200).json(rps(req.query.shot));
+});
 
+app.get("/app/rpsls/play", (req,res) => {
+    res.status(200).json(rpsls(req.query.shot));
+});
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
