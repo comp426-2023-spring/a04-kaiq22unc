@@ -10,9 +10,10 @@ const port = argv.port || 5000;
 
 
 // Default endpoint for undefined routes
-app.use((req, res, next) => {
-  res.status(404).send('404 Not Found');
-});
+app.get("*", (req, res) => {
+	          res.status(404).send("404 NOT FOUND");
+})
+
 
 // Check endpoint
 app.get('/app', (req, res) => {
