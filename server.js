@@ -53,6 +53,6 @@ app.get("/app/rpsls/play/:shot", (req,res,next) => {
     res.status(200);
 });
 
-server.listen(PORT, () => {
+const server=app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
